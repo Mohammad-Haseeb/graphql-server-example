@@ -1,0 +1,44 @@
+const { ApolloServer, gql } = require('apollo-server');
+
+
+const Course=[
+    {
+      total:5,
+      Best: "AI"
+    },
+    {
+        total:10,
+        Best: "DS"
+      },
+      {
+        total:19,
+        Best: "Blockchain"
+      },
+];
+
+const typeDefs = gql`
+ 
+  type Course {
+       total:Int
+       Best:String
+  }
+
+ 
+  type Query {
+     Course:[Course]
+  }
+`;
+const resolvers = {
+    Query: {
+      Course: () => Course,
+    },
+  };
+
+  // The ApolloServer constructor requires two parameters: your schema
+// definition and your set of resolvers.
+const server = new ApolloServer({ typeDefs, resolvers });
+
+// The `listen` method launches a web server.
+server.listen().then(({ url }) => {
+  console.log(`🚀  Server ready at ${url}`);
+});
