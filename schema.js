@@ -13,6 +13,16 @@ const { gql } = require('apollo-server');
         course:[Course]
         bookDetails:Book
    }
+   input messageInput {
+    message: String
+}
+   type messageType {
+    message: String
+    id: ID 
+}
+   type Mutation{
+       courseCreate(input:messageInput):messageType
+   }
 `;
 module.exports = typeDefs;
 
