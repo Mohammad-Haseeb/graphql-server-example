@@ -14,10 +14,10 @@ const { gql } = require('apollo-server');
         bookDetails:Book
    }
    input messageInput {
-    message: String
+    book: String
 }
    type messageType {
-    message: String
+    book: String
     id: ID 
 }
    type Mutation{
