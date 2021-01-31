@@ -16,6 +16,7 @@ const resolvers = {
            dataStoring[id]={id,...input.book};
            console.log(dataStoring);
            let finalData=input.book;
+           
            return {
              id:id,
              book:input.book
